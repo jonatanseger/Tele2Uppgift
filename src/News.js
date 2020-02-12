@@ -20,7 +20,7 @@ function FirstNews() {
       teaser={news.teaser}
     />
   ));
-  return <div className="test">{newsComponent}</div>;
+  return <div className="newsContainers">{newsComponent}</div>;
 }
 
 export default FirstNews;
