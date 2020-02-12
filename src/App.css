@@ -1,38 +1,100 @@
+.body {
+  margin: o;
+  width: 100%;
+  height: 100%;
+}
 .App {
-  text-align: center;
+  text-align: left;
+  background-color: rgb(235, 235, 235);
+  padding-left: 24px;
+  padding-right: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  padding-bottom: 96px;
+}
+.test {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 2px;
+}
+.newsContainer {
+  margin-top: 24px;
+  display: grid;
+  grid-column: span 1;
+  max-width: 366px;
+}
+.newsContainer img {
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.newsContainer h1 {
+  font-size: 16px;
+  font-weight: 300;
+}
+.newsContainer h4 {
+  font-size: 10px;
+  font-weight: 700;
+}
+.newsContainer h5 {
+  font-size: 10px;
+  font-weight: 400;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.newsContainer h1,
+.newsContainer h4,
+.newsContainer h5 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.newsContainer button {
+  background-color: black;
+  color: white;
+  border: none;
+  height: 32px;
+  width: 80px;
+  margin-top: 16px;
+  transition: 0.16s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.showMoreBtn {
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: none;
+  height: 56px;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 24px;
+  transition: 0.16s;
+}
+
+.newsContainer button:hover {
+  background-color: rgb(250, 250, 250);
+  cursor: pointer;
+  color: black;
+}
+.showMoreBtn:hover {
+  background-color: darkgrey;
+  cursor: pointer;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  .test {
+    grid-template-columns: 1fr 1fr;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width: 414px) {
+  .test {
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1512px) {
+  .newsContainer {
+    max-width: none;
+    min-width: 366px;
   }
 }
