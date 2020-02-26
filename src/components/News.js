@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
-import arrow from "./arrow__white.png";
+import "../App.css";
+import arrow from "../arrow__white.png";
 
 //takes in relevant data as props and returns a div with appropriate data
 function News(props) {

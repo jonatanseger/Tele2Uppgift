@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import NewsBuilder from "./NewsBuilder";
+import NewsBuilder from "./components/NewsBuilder";
 //import { withSize } from "react-sizeme";
 
 class App extends React.Component {

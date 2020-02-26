@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.css";
-import data from "./json/input.json";
+import "../App.css";
+import data from "../json/input.json";
 import News from "./News";
 
 //const to store input data as array
