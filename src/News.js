@@ -1,26 +1,20 @@
 import React from "react";
 import "./App.css";
-import data from "./json/input.json";
-import NewsComponent from "./NewsComponent";
+import arrow from "./arrow__white.png";
 
-//const to store input data as array
-const inputData = data.articles;
-
-//first 4 elements of array is of interest here
-const firstNews = inputData.slice(0, 4);
-
-//functional component to instruct NewsComponent what data to use
-function FirstNews() {
-  const newsComponent = firstNews.map(news => (
-    <NewsComponent
-      key={news.title}
-      image={news.image}
-      title={news.title}
-      date={news.date}
-      teaser={news.teaser}
-    />
-  ));
-  return <div className="newsContainers">{newsComponent}</div>;
+//takes in relevant data as props and returns a div with appropriate data
+function News(props) {
+  return (
+      <div className="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div className="news">
+          <img className="news__image" src={props.image} alt="News" />
+          <h2 className="news__title">{props.title}</h2>
+          <hr className="news__line"></hr>
+          <h4 className="news__date">{props.date}</h4>
+          <h5 className="news__teaser">{props.teaser}</h5>
+          <button className="news__button">LÄS MER<img className="news__button__arrow" src={arrow} alt=">"/></button>
+        </div>
+      </div>
+  );
 }
-
-export default FirstNews;
+export default News;

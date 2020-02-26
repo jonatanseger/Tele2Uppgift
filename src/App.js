@@ -1,36 +1,41 @@
 import React from "react";
 import "./App.css";
-import FurtherNews from "./FurtherNews";
-import News from "./News";
+import NewsBuilder from "./NewsBuilder";
+//import { withSize } from "react-sizeme";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    //initial state, only show first 4 news articles
     this.state = {
-      displayMore: false
+      showX: 4,
+      showMore: false
     };
 
-    //handle state when 'showMoreBtn' is clicked
-    this.displayMoreNews = () => {
+    this.displayNews = () => {
+      !this.state.showMore ? 
       this.setState({
-        displayMore: !this.state.displayMore
-      });
-    };
+        showX: this.state.showX + 6,
+        showMore: true
+      }) :
+      this.setState({
+        showX: this.state.showX - 6,
+        showMore: false
+      })
+    }
   }
 
-  //we always render <News /> when component mounts, <FurtherNews
-  //is rendered when we change the state of displayMore to true
-  //button changes text depending on displayMore is true or not
   render() {
     return (
       <div className="App">
-        <News />
-        {this.state.displayMore ? <FurtherNews /> : <div></div>}
-        <button className="showMoreBtn" onClick={this.displayMoreNews}>
-          {this.state.displayMore ? "VISA FÄRRE NYHETER" : "VISA FLER NYHETER"}
-        </button>
+        <div className="container-fluid">
+          <NewsBuilder showX={this.state.showX} />
+          <div className="row justify-content-start">
+            <button className="app__showMoreNews" onClick={this.displayNews} >
+              {!this.state.showMore ? "VISA FLER NYHETER" : "VISA FÄRRE NYHETER"}
+            </button>
+          </div>
+        </div>
       </div>
     );
   }
