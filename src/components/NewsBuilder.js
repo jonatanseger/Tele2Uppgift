@@ -1,16 +1,17 @@
 import React from "react";
-import "../App.css";
+import "../scss/App.scss";
 import data from "../json/input.json";
 import News from "./News";
 
-//const to store input data as array
+//create an array based on the json file
 const inputData = data.articles;
 
-//functional component to instruct News what data to use
-//numb of articles to render is informed by props.showX from parent (App.js)
-//combined key to ensure uniqueness
+//NewsBuilder is told how many articles to be built (showX)
+//A key and the data for each article is passed to News
+
 function NewsBuilder(props) {
-  const newsBuilder = inputData.slice(0, props.showX).map(news => (
+  const showX = props.showMore ? inputData.length : 4;
+  const newsBuilder = inputData.slice(0, showX).map(news => (
     <News
       key={news.title + news.date}
       image={news.image}

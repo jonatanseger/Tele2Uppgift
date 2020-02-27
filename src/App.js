@@ -1,26 +1,18 @@
 import React from "react";
-import "./App.css";
+import "./scss/App.scss";
 import NewsBuilder from "./components/NewsBuilder";
-//import { withSize } from "react-sizeme";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
-      showX: 4,
       showMore: false
     };
 
     this.displayNews = () => {
-      !this.state.showMore ? 
       this.setState({
-        showX: this.state.showX + 6,
-        showMore: true
-      }) :
-      this.setState({
-        showX: this.state.showX - 6,
-        showMore: false
+        showMore: !this.state.showMore
       })
     }
   }
@@ -29,7 +21,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="container-fluid">
-          <NewsBuilder showX={this.state.showX} />
+          <NewsBuilder showMore={this.state.showMore} />
           <div className="row justify-content-start">
             <button className="app__showMoreNews" onClick={this.displayNews} >
               {!this.state.showMore ? "VISA FLER NYHETER" : "VISA FÄRRE NYHETER"}

@@ -1,0 +1,135 @@
+$lightgrey: rgb(233, 238, 232);
+$black: rgb(36, 34, 40);
+$white: rgb(255, 255, 255);
+$turquoise: rgb(42, 202, 253);
+$fontsize__xs: 1.2rem;
+$fontsize__s: 1.4rem;
+$fontsize__m: 1.6rem;
+$fontsize__l: 2.3rem;
+
+@mixin text__padding {
+  padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+  margin-bottom: 0;
+}
+
+@mixin btn-line__margin {
+  margin: 0.8rem 1.6rem 0.8rem 1.6rem;
+}
+
+@mixin btn__style {
+  font-weight: 500;
+  transition: 0.16s;
+  border: none;
+  display: block;
+  letter-spacing: 0.2px;
+}
+
+@mixin btn__style__hover {
+  color: $white;
+  background-color: $turquoise;
+}
+
+body, html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 62.5%;
+  color: $black;
+}
+
+.App {
+  text-align: left;
+  background-color: $lightgrey;
+  padding: 3.2rem 2.4rem 3.2rem 2.4rem;
+}
+
+.news__image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.news img[src*="incorporated"] {
+  width: 100.2785515%;
+}
+
+.news__title {
+  @include text__padding;
+  text-transform: uppercase;
+  font-size: $fontsize__l;
+  font-weight: 320;
+  padding-top: 1.6rem;
+}
+
+.news__line {
+  @include btn-line__margin;
+  width: 4.8rem;
+  border: 1px solid $black;
+}
+.news__date {
+  @include text__padding;
+  font-size: $fontsize__xs;
+  font-weight: 700;
+}
+
+.news__teaser {
+  @include text__padding;
+  font-size: $fontsize__s;
+  font-weight: 400;
+  letter-spacing: 0.02rem;
+}
+
+.news__button {
+  @include btn-line__margin;
+  @include btn__style;
+  background-color: $black;
+  color: $white;
+  height: 4.8rem;
+  width: 12.5rem;
+  padding: 0;
+  margin: 0.8rem 0rem 4.8rem 1.6rem;
+}
+.news__button h3 {
+  font-size: $fontsize__m;
+  float: left;
+  padding: 1.6rem 0rem 1.2rem 1.6rem;
+  margin: 0;
+}
+.news__button__arrow {
+  height: 100%;
+}
+
+.news__button:hover {
+  @include btn__style__hover;
+}
+
+.app__showMoreNews {
+  @include btn-line__margin;
+  @include btn__style;
+  background-color: $white;
+  color: $turquoise;
+  height: 5.6rem;
+  width: 100%;
+  padding: 0;
+  margin-top: 2.4rem;
+  font-size: $fontsize__m;
+}
+
+.app__showMoreNews:hover {
+  @include btn__style__hover;
+}
+
+@media only screen and (min-width: 1536px) {
+  body, html {
+    font-size: 82.5%;
+  }
+}
+
+@media only screen and (min-width: 2260px) {
+  body, html {
+    font-size: 100%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  body, html {
+    font-size: 52.5%;
+  }
+}
