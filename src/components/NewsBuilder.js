@@ -10,7 +10,7 @@ const inputData = data.articles;
 //A key and the data for each article is passed to News
 
 function NewsBuilder(props) {
-  const showX = props.showMore ? inputData.length : 4;
+  const showX = props.showNews ? inputData.length : 4;
   const newsBuilder = inputData.slice(0, showX).map(news => (
     <News
       key={news.title + news.date}
